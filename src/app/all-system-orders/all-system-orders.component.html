@@ -1,0 +1,48 @@
+<div class="container">
+<div class="logo"><img src="../../assets/Preview (4).svg" alt="Logo"></div>
+  <div class="box">
+    <table>
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Status</th>
+          <th>PickUp</th>
+          <th>DropOff</th>
+          <th>Type</th>
+          <th>Weight</th>
+          <th>ExtraDetails</th>
+          <th>Courier Name</th>
+          <th>Assign Courier</th>
+          <th>Delete Order</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of allOrders">
+          <td>{{ order._id }}</td>
+          <td>{{ order.schemastatus }}
+            <label for="status"></label>
+            <select [(ngModel)]="order.selectedstatus" (change)="updateOrderStatus(order._id, order.selectedstatus)">
+              <option disabled></option>
+              <option value="picked-up">Picked Up</option>
+              <option value="in-transit">In Transit</option>
+              <option value="delivered">Delivered</option>
+            </select>
+          </td>
+          <td>{{ order.schemapickup }}</td>
+          <td>{{ order.schemadropoff }}</td>
+          <td>{{ order.schematype }}</td>
+          <td>{{ order.schemaweight }}</td>
+          <td>{{ order.schemaextradetails }}</td>
+          <td>{{ order.schemacourier }}</td>
+          <td>
+            <label for="courierDropdown">Couriers:</label>
+            <select id="courierDropdown" name="courierDropdown" [(ngModel)]="order.selectedCourier" (change)="assignCourier(order._id, order.selectedCourier)">
+              <option *ngFor="let courier of couriers" [value]="courier">{{ courier }}</option>
+            </select>
+          </td>
+          <td><button (click)="DeleteOrder(order._id)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

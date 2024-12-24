@@ -1,0 +1,48 @@
+<div class="container">
+        <div class="logo"><img src="../../assets/Preview (4).svg" alt="Logo"></div>
+
+        <form (ngSubmit)="onSubmit(createOrderForm)" #createOrderForm="ngForm" id="createOrderForm">
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <h1 class="createorder">Create an Order</h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="pickup">Pickup Location:</label></td>
+                    <td><input type="text" id="pickup" name="pickup" ngModel placeholder="Enter your pickup location" required></td>
+                </tr>
+                <tr>
+                    <td><label for="dropoff">Drop-off Location:</label></td>
+                    <td><input type="text" id="dropoff" name="dropoff" ngModel placeholder="Enter your drop-off location" required></td>
+                </tr>
+        
+                <tr>
+                    <td colspan="2">
+                        <h3 class="packagedetails">Enter your package details</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="type">Type :</label></td>
+                    <td><input type="text" id="type" name="type" ngModel placeholder="Enter your type" required></td>
+                </tr>
+                <tr>
+                    <td><label for="weight">Weight:</label></td>
+                    <td><input type="number" id="weight" name="weight" ngModel placeholder="Enter the weight of the package" required></td>
+                </tr>
+                <tr>
+                    <td><label for="extradetails">Extra Details:</label></td>
+                    <td><textarea id="extradetails" name="extradetails" rows="4" placeholder="Describe extra details" ngModel></textarea></td>
+                </tr>
+               
+                <tr>
+                    <td colspan="2">
+                        <div class="buttons">
+                            <button type="submit" class="submit">Create Order</button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+

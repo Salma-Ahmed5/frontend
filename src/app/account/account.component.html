@@ -1,0 +1,25 @@
+
+ 
+    <div class="main-container">
+        <div class="logo">
+            <img src="../../assets/Preview (4).svg" alt="Logo">
+        </div>
+
+        <div *ngIf="userDetails" class="profile">
+            <h2>Welcome {{userDetails.schemaName}} to your profile😄 </h2>
+            <h3>{{userDetails.schemaRole}} profile</h3>
+            
+            <button *ngIf="userDetails.schemaRole === 'User'" class="User-button"> 
+                <a [routerLink]="['/orderpage']">Order Now</a>
+            </button>
+            <button *ngIf="userDetails.schemaRole === 'User'" class="User-button"> 
+                <a [routerLink]="['/myorders']">View My Orders</a>
+            </button>
+            <button *ngIf="userDetails.schemaRole === 'Admin'" class="admin-button"> 
+                <a [routerLink]="['/all-system-orders']">View All System Orders</a>
+            </button>
+            <button *ngIf="userDetails.schemaRole === 'Courier'" class="courier-button">
+                <a [routerLink]="['/courier-orders']"> My Orders</a> 
+            </button>
+        </div>
+    </div>

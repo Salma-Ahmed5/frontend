@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4B4B4B, #A9A9A9, #000000); 
+  justify-content: center;
+  align-items: center;
+  position: fixed;  
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+}
+
+
+.profile {
+  text-align: center;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.profile h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+
+.admin-button a:hover {
+  background-color: #45a049;
+}
+
+.admin-button a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #000400;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.User-button a:hover {
+  background-color: #9b0000;
+}
+
+.User-button a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #000400;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+
+.admin-button a:hover {
+  background-color: #9b0000;
+}
+
+.admin-button a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #000400;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.courier-button a:hover {
+  background-color: #9b0000;
+}
+
+.courier-button {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #000400;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .main-container {
+      padding: 10px;
+  }
+
+  .logo {
+    position: absolute; 
+    top: 20px;
+    left: 20px; 
+}
+
+.logo img {
+    max-width: 160px; 
+    height: auto;
+    border-radius: 80px;
+}
+
+
+  .profile, .login-reminder {
+      padding: 20px;
+      width: 100%;
+      max-width: 350px;
+  }
+}

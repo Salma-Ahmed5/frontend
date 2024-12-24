@@ -1,0 +1,45 @@
+<div class="container">
+   <!-- Logo -->
+   <div class="logo">
+    <img src="../../assets/Preview (4).svg" alt="Company Logo">
+  </div>
+<div class="courier-orders-container">
+ 
+  <h2>Courier Orders</h2>
+
+  <div *ngIf="userDetails">
+    <h3>Welcome, {{ userDetails.name }}</h3>
+    <p>Your assigned courier schema: {{ userDetails.schemaName }}</p>
+  </div>
+
+  <div *ngIf="AssignOrders.length > 0">
+    <h3>Orders Assigned to You</h3>
+    <ul>
+      <li *ngFor="let order of AssignOrders">
+        <div class="order-details-box">
+          <p><strong>Order ID:</strong> {{ order._id }}</p>
+          <p><strong>Status:</strong> {{ order.schemastatus }}</p>
+          
+          <label for="status">Update Status:</label>
+          <select [(ngModel)]="order.schemastatus" (change)="updateOrderStatus(order._id, order.schemastatus)">
+            <option disabled selected>Select a status</option>
+            <option value="picked-up">Picked Up</option>
+            <option value="in-transit">In Transit</option>
+            <option value="delivered">Delivered</option>
+          </select>
+
+          <p><strong>Pickup Location:</strong> {{ order.schemapickup }}</p>
+          <p><strong>Dropoff Location:</strong> {{ order.schemadropoff }}</p>
+          <p><strong>Type:</strong> {{ order.schematype }}</p>
+          <p><strong>Weight:</strong> {{ order.schemaweight }} kg</p>
+          <p><strong>Extra Details:</strong> {{ order.schemaextradetails }}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="AssignOrders.length === 0">
+    <p>No orders assigned to you at the moment.</p>
+  </div>
+</div>
+</div>

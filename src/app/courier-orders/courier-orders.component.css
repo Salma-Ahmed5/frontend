@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #4B4B4B, #A9A9A9, #000000); 
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4B4B4B, #A9A9A9, #000000);
+  position: fixed;  
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.courier-orders-container {
+  display: flex;
+  flex-direction: column; 
+  background-color: #f9f9f9;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; 
+  max-height: 90vh; 
+}
+
+h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 20px;
+  color: black;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  color: #4B4B4B;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background-color: #fff;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+li:hover {
+  background-color: #ecf0f1;
+}
+
+label {
+  font-weight: bold;
+  color: #333;
+}
+
+select {
+  width: 50%;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+
+/* Button Styling */
+button {
+  background-color: #2980b9;
+  color: white;
+  font-size: 16px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #3498db;
+}
+
+@media (max-width: 768px) {
+  .courier-orders-container {
+    padding: 10px;
+    max-width: 100%;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+.logo {
+  position: absolute; 
+  top: 20px;
+  left: 20px;
+}
+
+.logo img {
+  max-width: 160px; 
+  height: auto;
+  border-radius: 80px;
+}

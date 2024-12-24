@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.component.css">
+</head>
+<body>
+<div class="container">
+    <div class="logo"><img src="../../assets/Preview (4).svg"></div>
+
+    <form (ngSubmit)="onLogin(loginForm)" #loginForm="ngForm">
+        <table>
+            <tr>
+                <td colspan="2">
+                    <h1 class="login">Log in to your account</h1>
+                    <h5>Don't have an account? <a [routerLink]="['/register']">Register here</a></h5>
+                </td>
+            </tr>         
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input type="email" id="email" name="email" ngModel placeholder="Enter your email" required /></td>
+            </tr>
+            <tr>
+                <td><label for="password">Password:</label></td>
+                <td><input type="password" id="password" name="password" ngModel placeholder="Enter your password" required /></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="buttons">
+                        <span class="submit"><button type="submit">Login</button></span>
+                        <span class="reset"><button type="reset">Reset</button></span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

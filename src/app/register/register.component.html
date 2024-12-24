@@ -1,0 +1,115 @@
+<div class="container">
+    <div class="logo"><img src="../../assets/Preview (4).svg"></div>
+
+    <form (ngSubmit)="onSubmit(registerForm)" #registerForm="ngForm">
+        <table>
+            <tr>
+                <td colspan="2">
+                    <h1 class="register">Create a new account</h1>
+                   <h5>Already have an account? <a [routerLink]= "['/login']" > Log in here </a> </h5>
+                </td>
+            </tr>         
+            <tr>
+                <td><label for="name">Name:</label></td>
+                <td><input type="text" id="fullname" name="fullname" ngModel placeholder="Enter your name" required></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td> <input type="email" id="email" name="email" ngModel placeholder="Enter your email" required /></td>
+            </tr>
+            <tr>
+                <td><label for="phone">Phone:</label></td>
+                <td><input type="number" id="phone" name="phone" ngModel placeholder="Enter your phone number" required /></td>
+            </tr>
+             <tr>
+                <td><label for="password">Password:</label></td>
+                <td><input type="password" id="password" name="password" ngModel placeholder="Enter your password" required /></td>
+            </tr>
+            <td><label for="role">Role:</label></td>
+            <td>
+                <select id="Role" name="Role" ngModel required>
+                    <option value="" disabled selected>Select your Role</option>
+                    <option value="Admin">Admin</option>
+                    <option value="User">User</option>
+                    <option value="Courier">Courier</option>
+                   
+                </select>
+            </td>
+            <tr>
+                <td colspan="2">
+                    <div class="buttons">
+                        <span class="submit"><button type="submit">Register</button></span>
+                        <span class="reset"><button type="reset">Reset</button></span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+        document.getElementById("registerForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            // Collect data from the form 
+            const formData = {
+                name: document.getElementById("fullname").value,
+                email: document.getElementById("email").value,
+                phone: document.getElementById("phone").value,
+                password: document.getElementById("password").value,
+                Role: document.getElementById("Role").value
+            };
+             //badal postman y3ni
+            // Send the data to the backend
+            fetch("http://localhost:5050/Register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Registration successful:", data);
+                alert("Registration successful!");
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+                alert("Registration failed. Please try again.");
+            });
+        });
+    </script>
