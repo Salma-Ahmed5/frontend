@@ -1,32 +1,26 @@
-# Build stage
-FROM node:alpine AS build
+FROM node:18-alpine as build
 
 WORKDIR /app
 
-# Copy package.json and package-lock.json and install dependencies
-COPY package.json package-lock.json ./ 
+RUN npm install -g @angular/cli@16
+
+COPY package*.json ./
+
 RUN npm install
 
-# Copy the rest of the application and build
 COPY . .
-RUN npm run build --prod
 
-# Serve stage
-FROM nginx:alpine
+RUN ng build --configuration production --output-path=dist
 
-# Create and set permissions for NGINX cache directories
-RUN mkdir -p /var/cache/nginx/client_temp \
-    && chown -R nginx:nginx /var/cache/nginx \
-    && chmod 755 /var/cache/nginx
+FROM nginx:stable-alpine
 
-# Copy the built application from the build stage to NGINX html directory
-COPY --from=build /app/dist/front-endd /usr/share/nginx/html
+RUN mkdir -p /tmp/nginx && chmod -R 777 /etc/nginx
 
-# Expose port 80
+COPY ./nginx.conf /etc/nginx/nginx.conf
+
+COPY --from=build /app/dist /usr/share/nginx/html
+
 EXPOSE 80
 
-# Start NGINX as the non-root user (nginx)
-USER nginx
-
-# Start NGINX in the foreground
+# Start Nginx server
 CMD ["nginx", "-g", "daemon off;"]
