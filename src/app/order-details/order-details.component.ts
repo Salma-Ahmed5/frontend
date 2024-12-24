@@ -23,7 +23,7 @@ export class OrderDetailsComponent implements OnInit {
     });
   }
   fetchOrderDetails(): void {
-    this.http.get<any>(`http://localhost:5050/orderdetails/${this.orderId}`).subscribe({
+    this.http.get<any>(`https://backend-git-salma-ahmed-dev.apps.rm3.7wse.p1.openshiftapps.com/orderdetails/${this.orderId}`).subscribe({
       next: (response) => {
         this.Details = response;
         console.log('Order details fetched:', this.Details); 

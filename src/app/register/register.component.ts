@@ -21,7 +21,7 @@ export class RegisterComponent {
       Role: registerForm.value.Role
     };
   
-    this.http.post('http://localhost:5050/Register', formData).subscribe(
+    this.http.post('https://backend-git-salma-ahmed-dev.apps.rm3.7wse.p1.openshiftapps.com/Register', formData).subscribe(
       (response) => {
         alert('Registration successful!');
         this.router.navigate(['/account']);

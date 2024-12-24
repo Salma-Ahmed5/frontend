@@ -38,7 +38,7 @@ export class OrderpageComponent implements OnInit {
         userEmail: this.useremail,  
       };
 
-      this.http.post('http://localhost:5050/createorder', formData).subscribe({
+      this.http.post('https://backend-git-salma-ahmed-dev.apps.rm3.7wse.p1.openshiftapps.com/createorder', formData).subscribe({
         next: (response) => {
           alert("Order created successfully!");
           

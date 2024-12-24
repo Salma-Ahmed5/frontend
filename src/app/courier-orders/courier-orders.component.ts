@@ -21,7 +21,7 @@ export class CourierOrdersComponent implements OnInit{
   ngOnInit(): void {
     const storedOrders = sessionStorage.getItem('AllOrders');
 
-      this.http.get<any[]>('http://localhost:5050/AllOrders').subscribe(
+      this.http.get<any[]>('https://backend-git-salma-ahmed-dev.apps.rm3.7wse.p1.openshiftapps.com/AllOrders').subscribe(
         (response) => {
           this.allOrders = response; 
           
@@ -54,7 +54,7 @@ export class CourierOrdersComponent implements OnInit{
 
     updateOrderStatus(orderId: string, NewStatus: string): void {
 
-      this.http.put(`http://localhost:5050/UpdateStatus/${orderId}/${NewStatus}`, {}).subscribe(
+      this.http.put(`https://backend-git-salma-ahmed-dev.apps.rm3.7wse.p1.openshiftapps.com/UpdateStatus/${orderId}/${NewStatus}`, {}).subscribe(
         (response) => {
 
           alert(`Courier ${NewStatus} assigned to order ${orderId} successfully.`);

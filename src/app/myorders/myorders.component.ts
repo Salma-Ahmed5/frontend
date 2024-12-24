@@ -21,7 +21,7 @@ export class MyordersComponent implements OnInit {
       console.log('No user email found in sessionStorage');
       this.router.navigate(['/login']);  
     } else {
-      this.http.get<any[]>(`http://localhost:5050/getorders?email=${userEmail}`).subscribe({
+      this.http.get<any[]>(`https://backend-git-salma-ahmed-dev.apps.rm3.7wse.p1.openshiftapps.com/getorders?email=${userEmail}`).subscribe({
         next: (data) => {
           this.orders = data.map(order => ({
             _id: order._id,

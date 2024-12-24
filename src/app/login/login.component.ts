@@ -19,7 +19,7 @@ export class LoginComponent {
     const email = loginForm.value.email;
     const password = loginForm.value.password;
 
-    this.http.get(`http://localhost:5050/login/${email}`).subscribe(
+    this.http.get(`https://backend-git-salma-ahmed-dev.apps.rm3.7wse.p1.openshiftapps.com/login/${email}`).subscribe(
       (response) => {
        
         sessionStorage.setItem('userEmail', email);  

@@ -17,7 +17,7 @@ export class AllSystemOrdersComponent implements OnInit {
   ngOnInit(): void {
     const storedOrders = sessionStorage.getItem('AllOrders');
 
-      this.http.get<any[]>('http://localhost:5050/AllOrders').subscribe(
+      this.http.get<any[]>('https://backend-git-salma-ahmed-dev.apps.rm3.7wse.p1.openshiftapps.com/AllOrders').subscribe(
         (response) => {
           this.allOrders = response; 
           sessionStorage.setItem('AllOrders', JSON.stringify(response)); 
@@ -30,7 +30,7 @@ export class AllSystemOrdersComponent implements OnInit {
       );
 
 
-      this.http.get<any[]>('http://localhost:5050/AllUsers').subscribe(
+      this.http.get<any[]>('https://backend-git-salma-ahmed-dev.apps.rm3.7wse.p1.openshiftapps.com/AllUsers').subscribe(
         (response) => {
           this.allUsers = response;
           for (let i = 0; i < this.allUsers.length; i++) {
@@ -54,7 +54,7 @@ export class AllSystemOrdersComponent implements OnInit {
 
     updateOrderStatus(orderId: string, NewStatus: string): void {
 
-      this.http.put(`http://localhost:5050/UpdateStatus/${orderId}/${NewStatus}`, {}).subscribe(
+      this.http.put(`https://backend-git-salma-ahmed-dev.apps.rm3.7wse.p1.openshiftapps.com/UpdateStatus/${orderId}/${NewStatus}`, {}).subscribe(
         (response) => {
 
           alert(`Courier ${NewStatus} assigned to order ${orderId} successfully.`);
@@ -71,7 +71,7 @@ export class AllSystemOrdersComponent implements OnInit {
 
     assignCourier(orderId: string, name: string): void {
 
-      this.http.put(`http://localhost:5050/AssignCourier/${orderId}/${name}`, {}).subscribe(
+      this.http.put(`https://backend-git-salma-ahmed-dev.apps.rm3.7wse.p1.openshiftapps.com/AssignCourier/${orderId}/${name}`, {}).subscribe(
         (response) => {
 
           alert(`Courier ${name} assigned to order ${orderId} successfully.`);
@@ -87,7 +87,7 @@ export class AllSystemOrdersComponent implements OnInit {
 
     DeleteOrder(orderId:String) : void {
 
-      this.http.delete(`http://localhost:5050/DeleteOrder/${orderId}`).subscribe(
+      this.http.delete(`https://backend-git-salma-ahmed-dev.apps.rm3.7wse.p1.openshiftapps.com/DeleteOrder/${orderId}`).subscribe(
         () => {
           
           alert('order deleted');
